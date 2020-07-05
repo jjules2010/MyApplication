@@ -65,12 +65,7 @@ public class MainActivity extends AppCompatActivity {
             return gson.fromJson(jsonPokemon, listType);
         }
 
-
-
     }
-
-
-
 
     private void showList(final List<Pokemon> pokemonList){
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -82,8 +77,6 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
-
 
         // define an adapter
         mAdapter = new ListAdapter(pokemonList);
@@ -108,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<RestPokemonResponse> call, Response<RestPokemonResponse> response) {
                 if(response.isSuccessful() && response.body() != null){
                     List<Pokemon> pokemonList=response.body().getResults();
+                    Toast.makeText(getApplicationContext(), "API success", Toast.LENGTH_SHORT).show();
                     saveList(pokemonList);
                     showList(pokemonList);
 

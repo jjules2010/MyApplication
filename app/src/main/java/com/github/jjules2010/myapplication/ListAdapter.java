@@ -65,8 +65,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        final Pokemon colorPokemon = values.get(position);
-        holder.txtHeader.setText(colorPokemon.getName());
+        final Pokemon pokemon = values.get(position);
+        holder.txtHeader.setText(pokemon.getName());
         holder.txtHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             }
         });
 
-        holder.txtFooter.setText(colorPokemon.getUrl());
+        holder.txtFooter.setText(pokemon.getUrl());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
